@@ -3,6 +3,8 @@ package com.mml.mvctest.model;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,5 +32,8 @@ public class Order {
 	private String url;
 	private String imageUrl;
 	private String description;
+	
+	@Enumerated(EnumType.STRING)
+	private Status status;
 	
 }

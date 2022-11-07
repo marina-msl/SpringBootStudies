@@ -1,0 +1,45 @@
+<html>
+	<head th:replace="~{base :: head}"></head>
+		<div th:replace="~{base :: logo}"></div>
+	<body>
+		<div class="container">
+			<div th:replace="base :: title ('New Order')"></div>
+			
+			<div class="card mt-3">
+			<form th:object="${requestNewOrder}" class="card-body" action="/order/new" method="POST">
+				<div class="card-body">
+					<div class="from-group">
+						<label for="productName">Product</label>
+						<input th:field="*{productName}" th:errorclass ="is-invalid" class="form-control" placeHolder="Product's name"/>
+						<small>Inform produtc's name.</small>
+						<div class="invalid-feedback" th:errors="*{productName}">
+							Errors in field of product's name
+						</div>
+					</div>
+					<div class="from-group">
+						<label for="productUrl">Url</label>
+						<input th:field="*{productUrl}"  th:errorclass ="is-invalid" class="form-control" placeHolder="Product's url" />
+						<small>Looking for the product you want and past url here.</small>
+						<div class="invalid-feedback" th:errors="*{productUrl}">
+							Errors in field of product's name
+						</div>
+					</div>
+					<div class="from-group">
+						<label for="productImage">Image</label>
+						<input  th:field="*{productImage}"  th:errorclass ="is-invalid" class="form-control" placeHolder="Product's image" />
+						<small>Copy a good picture from the product you want and past here to help find buyers.</small>
+						<div class="invalid-feedback" th:errors="*{productImage}">
+							Errors in field of product's name
+						</div>
+					</div>
+					<div class="from-group">
+						<label for="productDescription">Description</label>
+						<textarea th:field="*{productDescription}" class="form-control" placeHolder="Add important informations to help buyer" /></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Add</button>
+				</div>
+			</form>
+			</div>
+		</div>
+	</body>
+</html>
