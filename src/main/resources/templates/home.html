@@ -28,11 +28,8 @@
 					<div class="row">
 						<div class="col-12 col-sm-8 mb-3">
 							<div class="row">
-								<div class="col-md-5">
-									Price: <span th:text="${order.price}">200.99</span>
-								</div>
-								<div class="col-md-7">
-									Delivery's date: <span th:text="${order.date}">10/28/2020</span>
+								<div class="col-md-5">Price: <span th:if="${order.price} != null" th:text="${'R$ ' + #numbers.formatDecimal(order.price, 3, 'POINT',2 , 'COMMA')}" >200,00</span>								</div>
+								<div class="col-md-7">Delivery's date: <span th:if="${order.date} != null" th:text="${#temporals.format(order.date, 'dd/MM/yyyy')}">10/30/2020</span>
 								</div>
 							</div>
 							<div>Product</div>
